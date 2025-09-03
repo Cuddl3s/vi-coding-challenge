@@ -13,6 +13,7 @@ export class PokemonCard extends LitElement {
         }
         return html`
             <div class="card">
+                <span class="number">#${this.pokemon.id}</span>
                 <img src=${String(this.pokemon.sprite)} alt=${String(this.pokemon.name)} />
                 <hr />
                 <div class="info">
@@ -24,7 +25,15 @@ export class PokemonCard extends LitElement {
     }
 
     static styles = css`
+        .number {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            color: black;
+            font-weight: bold;
+        }
         .card {
+            position: relative;
             border: 1px solid #ccc;
             border-radius: 12px;
             padding: 0.5rem;
@@ -40,6 +49,10 @@ export class PokemonCard extends LitElement {
             font-weight: bold;
             text-transform: capitalize;
             color: black;
+            flex: 1;
+        }
+        .info {
+            display: flex;
         }
   `;
 }

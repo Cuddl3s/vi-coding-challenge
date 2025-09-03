@@ -31,6 +31,9 @@ export class TypeIndicator extends LitElement {
     }
 
     static styles = css`
+    :host {
+        flex-shrink: 1;
+    }
         .type {
             display: inline-block;
             width: 16px;
@@ -42,6 +45,6 @@ export class TypeIndicator extends LitElement {
     `
 
     render() {
-        return html`<span class="type"></span>`
+        return html`<span title=${this.type} class="type"></span>`
     }
 }

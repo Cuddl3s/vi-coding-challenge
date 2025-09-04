@@ -1,7 +1,7 @@
 import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import type { Pokemon } from "./pokemon-gridview";
 import './type-indicator';
+import type { Pokemon } from "./api/pokemon";
 
 @customElement('pokemon-card')
 export class PokemonCard extends LitElement {
@@ -13,13 +13,15 @@ export class PokemonCard extends LitElement {
         }
         return html`
             <div class="card">
-                <span class="number">#${this.pokemon.id}</span>
-                <img src=${String(this.pokemon.sprite)} alt=${String(this.pokemon.name)} />
-                <hr />
-                <div class="info">
-                    <div class="name">${this.pokemon.name}</div>
-                    <div class="types">${this.pokemon.types.map(({type: {name}}) => html`<type-indicator .type=${name}></type-indicator>`)}</div>
-                </div>
+                <a href="#">
+                    <span class="number">#${this.pokemon.id}</span>
+                    <img src=${String(this.pokemon.sprite)} alt=${String(this.pokemon.name)} />
+                    <hr />
+                    <div class="info">
+                        <div class="name">${this.pokemon.name}</div>
+                        <div class="types">${this.pokemon.types.map(({type: {name}}) => html`<type-indicator .type=${name}></type-indicator>`)}</div>
+                    </div>
+                </a>
             </div>
         `
     }
@@ -42,8 +44,8 @@ export class PokemonCard extends LitElement {
             box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
         img {
-            width: 96px;
-            height: 96px;
+            width: 128px;
+            height: 128px;
         }
         .name {
             font-weight: bold;

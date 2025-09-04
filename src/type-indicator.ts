@@ -31,13 +31,10 @@ export class TypeIndicator extends LitElement {
     }
 
     static styles = css`
-    :host {
-        flex-shrink: 1;
-    }
-        .type {
-            display: inline-block;
+        :host {
             width: 16px;
             height: 16px;
+            display: inline-block;
             border-radius: 50%;
             background-color: var(--type-color);
             margin-right: 4px;
@@ -45,6 +42,6 @@ export class TypeIndicator extends LitElement {
     `
 
     render() {
-        return html`<span title=${this.type} class="type"></span>`
+        return html`<span title=${this.type}></span>`
     }
 }
